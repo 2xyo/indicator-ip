@@ -1,0 +1,15 @@
+Source: indicator-ip
+Section: python
+Priority: optional
+Maintainer: Yohann Lepage, <yohann@lepage.info>
+Build-Depends: debhelper (>= 7), 
+               python (>= 2.6.6-3~)
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.6
+
+
+Package: indicator-ip
+Architecture: all
+Depends: python-appindicator,${misc:Depends}
+Description: IP address indicator for Unity.
+ IP address indicator for Unity panel.

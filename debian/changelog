@@ -1,0 +1,5 @@
+indicator-ip (0.2) quantal; urgency=low
+
+  * Initial release.
+
+ -- Yohann Lepage <yohann@lepage.info>  Fri, 28 Sep 2012 17:23:46 +0200
