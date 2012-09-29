@@ -1,3 +1,9 @@
+indicator-ip (0.3-1ubuntu1) quantal; urgency=low
+
+  * Add indicator-ip at startup 
+
+ -- Yohann Lepage <yohann@lepage.info>  Sat, 29 Sep 2012 18:44:33 +0200
+
 indicator-ip (0.2-1) quantal; urgency=low
 
   * Add documentation

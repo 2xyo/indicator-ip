@@ -1,1 +1,2 @@
-indicator-ip.py usr/bin/
+indicator-ip.py usr/bin/indicator-ip
+indicator-ip-applet-unity.desktop etc/xdg/autostart/

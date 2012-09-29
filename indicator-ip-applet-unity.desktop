@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Indicator IP
+Comment=Indicator IP applet
+Icon=/usr/share/notify-osd/icons/gnome/scalable/status/notification-network-ethernet-connected.svg
+Exec=indicator-ip
+Terminal=false
+Type=Application
+Categories=
+OnlyShowIn=Unity;
