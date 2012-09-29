@@ -1,4 +1,10 @@
-ip-indicator
-============
+indicator-ip (for unity)
+=======================
 
-ip-indicator displays your public IP address.
+indicator-ip displays your public IP address.
+
+Installation
+-----------
+
+	$ sudo add-apt-repository ppa:2xyo/indicator-ip
+	$ sudo ap-get install indicator-ip
