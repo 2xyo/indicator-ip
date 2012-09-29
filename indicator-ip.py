@@ -4,16 +4,18 @@
 import appindicator
 import gtk
 import netifaces
-from urllib import urlopen
+import urllib2
 
-URL_PUBLIC_IP = 'http://automation.whatismyip.com/n09230945.asp'
+URL_PUBLIC_IP = 'http://automation.whatismyip.coim/n09230945.asp'
 
 def get_public_ip():
-   return urlopen(URL_PUBLIC_IP).read()
-
+   opener = urllib2.build_opener()
+   opener.addheaders = [('cache-control', 'no-cache')]
+   
+   return opener.open(URL_PUBLIC_IP).read()
 
 def get_private_ip(i):
-       return  netifaces.ifaddresses(i)[netifaces.AF_INET][0]['addr']
+       return netifaces.ifaddresses(i)[netifaces.AF_INET][0]['addr']
 
 
 def create_menu(indi,a=None):
@@ -24,15 +26,16 @@ def create_menu(indi,a=None):
    menu_item.connect("activate",create_menu,ind)
    menu.append(menu_item)
    menu_item.show()
-   
-   menu_item = gtk.MenuItem("Public : %s" % get_public_ip())
+  
+   try:
+     menu_item = gtk.MenuItem("Public : %s" % get_public_ip())
+   except:
+     menu_item = gtk.MenuItem("No public IP")
+
    menu.append(menu_item)
    menu_item.show()
    
-
-   
    for i in netifaces.interfaces():
-      print("Interface : %s" % i)
       if i != "lo":
          menu_item = gtk.MenuItem("%s : %s" % (i, get_private_ip(i)))
          menu.append(menu_item)
@@ -40,11 +43,13 @@ def create_menu(indi,a=None):
    
    ind.set_menu(menu)
 
+
 ind = appindicator.Indicator("indicator-network",
    "/usr/share/notify-osd/icons/gnome/scalable/status/notification-network-ethernet-connected.svg",
    appindicator.CATEGORY_COMMUNICATIONS)
 
 ind.set_status (appindicator.STATUS_ACTIVE)
+
 
 if __name__ == "__main__":
    create_menu(ind)
