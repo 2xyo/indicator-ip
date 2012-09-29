@@ -6,19 +6,41 @@ import gtk
 import netifaces
 import urllib2
 
-URL_PUBLIC_IP = 'http://automation.whatismyip.coim/n09230945.asp'
+URL_PUBLIC_IP = 'http://automation.whatismyip.com/n09230945.asp'
 
-def get_public_ip():
+
+def get_public_ipv4():
+   """This function return a public IPv4 address.
+
+   Returns:
+       str.  The public IPv4 address.
+
+   """
    opener = urllib2.build_opener()
    opener.addheaders = [('cache-control', 'no-cache')]
    
    return opener.open(URL_PUBLIC_IP).read()
 
-def get_private_ip(i):
-       return netifaces.ifaddresses(i)[netifaces.AF_INET][0]['addr']
+def get_private_ipv4(i):
+   """This function return IPv4 address of the interface.
+
+   Args:
+      i (str): The name of the interface.
+         
+   Returns:
+      str.  The IPv4 address of the interface.
+
+   """
+   return netifaces.ifaddresses(i)[netifaces.AF_INET][0]['addr']
 
 
-def create_menu(indi,a=None):
+def create_menu(indi,*args):
+   """This function creates a GTK menu.
+
+   Args:
+      indi (appindicator.Indicator): The instance of appindicator.
+         
+   """
    
    menu = gtk.Menu()
    
@@ -28,16 +50,16 @@ def create_menu(indi,a=None):
    menu_item.show()
   
    try:
-     menu_item = gtk.MenuItem("Public : %s" % get_public_ip())
+     menu_item = gtk.MenuItem("Public : %s" % get_public_ipv4())
    except:
-     menu_item = gtk.MenuItem("No public IP")
+     menu_item = gtk.MenuItem("No public IPv4")
 
    menu.append(menu_item)
    menu_item.show()
    
    for i in netifaces.interfaces():
       if i != "lo":
-         menu_item = gtk.MenuItem("%s : %s" % (i, get_private_ip(i)))
+         menu_item = gtk.MenuItem("%s : %s" % (i, get_private_ipv4(i)))
          menu.append(menu_item)
          menu_item.show()
    
