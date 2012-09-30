@@ -11,3 +11,6 @@ Installation
 
 	$ sudo add-apt-repository ppa:2xyo/indicator-ip
 	$ sudo ap-get install indicator-ip
+
+
+[![Build Status](https://secure.travis-ci.org/2xyo/indicator-ip.png)](http://travis-ci.org/2xyo/indicator-ip)
