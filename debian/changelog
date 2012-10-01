@@ -1,22 +1,29 @@
+indicator-ip (0.4.1precise1) precise; urgency=low
+
+  * Handle exceptions on get_public_ipv4 because sometimes, netifaces 
+    doesn't return interface at startup.
+
+ -- Yohann Lepage <yohann@lepage.info>  Sat, 29 Sep 2012 19:30:01 +0200
+
 indicator-ip (0.4precise1) precise; urgency=low
 
   * Fix version
 
  -- Yohann Lepage <yohann@lepage.info>  Sat, 29 Sep 2012 19:30:01 +0200
 
-indicator-ip (0.3-2) quantal; urgency=low
+indicator-ip (0.3-2) precise; urgency=low
 
   * Fix debian/install
 
  -- Yohann Lepage <yohann@lepage.info>  Sat, 29 Sep 2012 19:30:01 +0200
 
-indicator-ip (0.3-1) quantal; urgency=low
+indicator-ip (0.3-1) precise; urgency=low
 
   * Add indicator-ip at startup 
 
  -- Yohann Lepage <yohann@lepage.info>  Sat, 29 Sep 2012 18:44:33 +0200
 
-indicator-ip (0.2-1) quantal; urgency=low
+indicator-ip (0.2-1) precise; urgency=low
 
   * Add documentation
   * Fix typo in URL_PUBLIC_IP
@@ -24,7 +31,7 @@ indicator-ip (0.2-1) quantal; urgency=low
 
  -- Yohann Lepage <yohann@lepage.info> Sat, 29 Sep 2012 18:13:39 +0200
 
-indicator-ip (0.2) quantal; urgency=low
+indicator-ip (0.2) precise; urgency=low
 
   * Initial release.
 
