@@ -53,15 +53,18 @@ def create_menu(indi,*args):
      menu_item = gtk.MenuItem("Public : %s" % get_public_ipv4())
    except:
      menu_item = gtk.MenuItem("No public IPv4")
-
-   menu.append(menu_item)
-   menu_item.show()
+   finally:
+      menu.append(menu_item)
+      menu_item.show()
    
    for i in netifaces.interfaces():
       if i != "lo":
-         menu_item = gtk.MenuItem("%s : %s" % (i, get_private_ipv4(i)))
-         menu.append(menu_item)
-         menu_item.show()
+         try:
+            menu_item = gtk.MenuItem("%s : %s" % (i, get_private_ipv4(i)))
+            menu.append(menu_item)
+            menu_item.show()
+         except:
+            continue
    
    ind.set_menu(menu)
 
